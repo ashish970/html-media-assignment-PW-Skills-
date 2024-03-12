@@ -1,0 +1,60 @@
+//Validate Password...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form Validation</title>
+</head>
+<body>
+
+<h2>Login Form</h2>
+<form id="loginForm">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+<script>
+// Get references to form elements
+const loginForm = document.getElementById('loginForm');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+
+// Add event listener to form submission
+loginForm.addEventListener('submit', function(event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+
+    // Retrieve user input values
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Invalid email format. Please enter a valid email address.");
+        return;
+    }
+
+    // Validate password length
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
+
+    // If validation passes, proceed with form submission
+    // You can perform additional validation or submit the form to a server here
+    // For demonstration purposes, we'll simply log the success message
+    console.log("Login successful!");
+});
+</script>
+
+</body>
+</html>

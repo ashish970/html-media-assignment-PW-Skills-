@@ -1,0 +1,45 @@
+//Progress Bar...
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Progress Bar</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="progressBar"></div>
+
+<div class="content">
+    <!-- Your content goes here -->
+    <h1>Lorem ipsum dolor sit amet</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut justo nec ligula tincidunt congue. Donec aliquet ex non ipsum dapibus fermentum. Duis sit amet nisi a magna commodo pulvinar. Vestibulum id aliquam leo. Nullam nec augue in nulla lobortis sodales. Integer nec mi et nulla venenatis varius. Vestibulum ut vehicula sapien. Vivamus a neque eu sem tristique fermentum.</p>
+    <!-- Add more content as needed -->
+</div>
+
+<script>
+
+// Function to update the progress bar based on the user's scroll position
+function updateProgressBar() {
+    const scrollPosition = document.documentElement.scrollTop;
+    const windowHeight = document.documentElement.clientHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Calculate the percentage scrolled
+    const scrollPercentage = (scrollPosition / (documentHeight - windowHeight)) * 100;
+
+    // Update the width of the progress bar
+    const progressBar = document.getElementById('progressBar');
+    progressBar.style.width = scrollPercentage + '%';
+}
+
+// Add event listener to update progress bar on scroll
+window.addEventListener('scroll', updateProgressBar);
+
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
